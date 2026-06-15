@@ -44,3 +44,25 @@ asientoElegido
 );
 
 });
+let total = 0;
+
+function agregarCombo(nombre, precio){
+
+const lista =
+document.getElementById("listaCarrito");
+
+const item =
+document.createElement("li");
+
+item.textContent =
+nombre + " - S/ " + precio;
+
+lista.appendChild(item);
+
+total += precio;
+
+document.getElementById("total")
+.textContent =
+"Total: S/ " + total;
+
+}
