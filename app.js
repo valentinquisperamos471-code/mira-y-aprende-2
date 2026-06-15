@@ -94,6 +94,57 @@ alert("Selecciona un asiento.");
 return;
 }
 
+const numeroTicket =
+Math.floor(Math.random()*9000)+1000;
+
+const fecha =
+new Date().toLocaleDateString("es-PE");
+
+const hora =
+new Date().toLocaleTimeString("es-PE");
+
+document.getElementById("ticketFinal").innerHTML = `
+
+<div class="ticket-header">
+<h3>🎬 MIRA Y APRENDE</h3>
+<p>Cine Reciclable Escolar</p>
+</div>
+
+<div class="ticket-info">🎟 Ticket N° ${numeroTicket}</div>
+<div class="ticket-info">👤 ${nombre}</div>
+<div class="ticket-info">🎓 ${grado}</div>
+<div class="ticket-info">🎬 ${pelicula}</div>
+<div class="ticket-info">💺 Asiento ${asientoElegido}</div>
+<div class="ticket-info">♻️ Entrada: 8 Botellas</div>
+<div class="ticket-info">🥤 Total Combos: S/ ${total}</div>
+<div class="ticket-info">📅 ${fecha}</div>
+<div class="ticket-info">🕒 ${hora}</div>
+
+<div class="ticket-footer">
+🏫 Mira y Aprende<br>
+📱 WhatsApp: 955 057 190<br>
+¡Disfruta la función!
+</div>
+
+`;
+
+});
+
+if(nombre===""){
+alert("Ingresa tu nombre.");
+return;
+}
+
+if(grado===""){
+alert("Selecciona tu grado.");
+return;
+}
+
+if(asientoElegido===""){
+alert("Selecciona un asiento.");
+return;
+}
+
 document
 .getElementById("generarTicket")
 .addEventListener("click", () => {
