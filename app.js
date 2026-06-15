@@ -1,247 +1,147 @@
 console.log("Mira y Aprende iniciado");
-let asientoElegido = "";
 
-const asientos =
-document.querySelectorAll(".asiento");
+let asientoElegido = "";
+let total = 0;
+
+/* =========================
+ASIENTOS
+========================= */
+
+const asientos = document.querySelectorAll(".asiento");
 
 asientos.forEach(asiento => {
 
 asiento.addEventListener("click", () => {
 
+```
 document
-.querySelectorAll(".asiento")
-.forEach(a =>
-a.classList.remove("seleccionado")
-);
+  .querySelectorAll(".asiento")
+  .forEach(a => a.classList.remove("seleccionado"));
 
 asiento.classList.add("seleccionado");
 
-asientoElegido =
-asiento.textContent;
+asientoElegido = asiento.textContent;
 
-document.getElementById(
-"asientoSeleccionado"
-).textContent =
-"💺 Asiento seleccionado: " +
-asientoElegido;
+document.getElementById("asientoSeleccionado").textContent =
+  "💺 Asiento seleccionado: " + asientoElegido;
+```
 
 });
 
 });
 
-document
-.getElementById("confirmarAsiento")
-.addEventListener("click", () => {
+const btnConfirmar = document.getElementById("confirmarAsiento");
 
-if(asientoElegido===""){
-alert("Selecciona un asiento.");
-return;
+if(btnConfirmar){
+
+btnConfirmar.addEventListener("click", () => {
+
+```
+if(asientoElegido === ""){
+  alert("Selecciona un asiento.");
+  return;
 }
 
-alert(
-"🎟 Has seleccionado el asiento " +
-asientoElegido
-);
+alert("🎟 Has seleccionado el asiento " + asientoElegido);
+```
 
 });
-let total = 0;
+
+}
+
+/* =========================
+COMBOS
+========================= */
 
 function agregarCombo(nombre, precio){
 
-const lista =
-document.getElementById("listaCarrito");
+const lista = document.getElementById("listaCarrito");
 
-const item =
-document.createElement("li");
+const item = document.createElement("li");
 
-item.textContent =
-nombre + " - S/ " + precio;
+item.textContent = nombre + " - S/ " + precio;
 
 lista.appendChild(item);
 
 total += precio;
 
-document.getElementById("total")
-.textContent =
+document.getElementById("total").textContent =
 "Total: S/ " + total;
 
 }
-document
-.getElementById("generarTicket")
-.addEventListener("click", () => {
 
+window.agregarCombo = agregarCombo;
+
+/* =========================
+TICKET
+========================= */
+
+const btnTicket = document.getElementById("generarTicket");
+
+if(btnTicket){
+
+btnTicket.addEventListener("click", () => {
+
+```
 const nombre =
-document.getElementById("nombre").value;
+  document.getElementById("nombre").value;
 
 const grado =
-document.getElementById("grado").value;
+  document.getElementById("grado").value;
 
 const pelicula =
-document.getElementById("pelicula").value;
+  document.getElementById("pelicula").value;
 
-if(nombre===""){
-alert("Ingresa tu nombre.");
-return;
+if(nombre === ""){
+  alert("Ingresa tu nombre.");
+  return;
 }
 
-if(grado===""){
-alert("Selecciona tu grado.");
-return;
+if(grado === ""){
+  alert("Selecciona tu grado.");
+  return;
 }
 
-if(asientoElegido===""){
-alert("Selecciona un asiento.");
-return;
+if(asientoElegido === ""){
+  alert("Selecciona un asiento.");
+  return;
 }
 
 const numeroTicket =
-Math.floor(Math.random()*9000)+1000;
+  Math.floor(Math.random() * 9000) + 1000;
 
 const fecha =
-new Date().toLocaleDateString("es-PE");
+  new Date().toLocaleDateString("es-PE");
 
 const hora =
-new Date().toLocaleTimeString("es-PE");
+  new Date().toLocaleTimeString("es-PE");
 
 document.getElementById("ticketFinal").innerHTML = `
 
-<div class="ticket-header">
-<h3>🎬 MIRA Y APRENDE</h3>
-<p>Cine Reciclable Escolar</p>
-</div>
+  <div class="ticket-header">
+    <h3>🎬 MIRA Y APRENDE</h3>
+    <p>Cine Reciclable Escolar</p>
+  </div>
 
-<div class="ticket-info">🎟 Ticket N° ${numeroTicket}</div>
-<div class="ticket-info">👤 ${nombre}</div>
-<div class="ticket-info">🎓 ${grado}</div>
-<div class="ticket-info">🎬 ${pelicula}</div>
-<div class="ticket-info">💺 Asiento ${asientoElegido}</div>
-<div class="ticket-info">♻️ Entrada: 8 Botellas</div>
-<div class="ticket-info">🥤 Total Combos: S/ ${total}</div>
-<div class="ticket-info">📅 ${fecha}</div>
-<div class="ticket-info">🕒 ${hora}</div>
+  <div class="ticket-info">🎟 Ticket N° ${numeroTicket}</div>
+  <div class="ticket-info">👤 ${nombre}</div>
+  <div class="ticket-info">🎓 ${grado}</div>
+  <div class="ticket-info">🎬 ${pelicula}</div>
+  <div class="ticket-info">💺 Asiento ${asientoElegido}</div>
+  <div class="ticket-info">♻️ Entrada: 8 Botellas</div>
+  <div class="ticket-info">🥤 Total Combos: S/ ${total}</div>
+  <div class="ticket-info">📅 ${fecha}</div>
+  <div class="ticket-info">🕒 ${hora}</div>
 
-<div class="ticket-footer">
-🏫 Mira y Aprende<br>
-📱 WhatsApp: 955 057 190<br>
-¡Disfruta la función!
-</div>
+  <div class="ticket-footer">
+    🏫 Mira y Aprende<br>
+    📱 WhatsApp: 955 057 190<br>
+    ¡Disfruta la función!
+  </div>
 
 `;
+```
 
 });
 
-if(nombre===""){
-alert("Ingresa tu nombre.");
-return;
 }
-
-if(grado===""){
-alert("Selecciona tu grado.");
-return;
-}
-
-if(asientoElegido===""){
-alert("Selecciona un asiento.");
-return;
-}
-
-document
-.getElementById("generarTicket")
-.addEventListener("click", () => {
-
-const nombre =
-document.getElementById("nombre").value;
-
-const grado =
-document.getElementById("grado").value;
-
-const pelicula =
-document.getElementById("pelicula").value;
-
-if(nombre===""){
-alert("Ingresa tu nombre.");
-return;
-}
-
-if(grado===""){
-alert("Selecciona tu grado o grupo.");
-return;
-}
-
-if(asientoElegido===""){
-alert("Selecciona un asiento.");
-return;
-}
-
-const numeroTicket =
-Math.floor(Math.random()*9000)+1000;
-
-const fecha =
-new Date().toLocaleDateString("es-PE");
-
-const hora =
-new Date().toLocaleTimeString("es-PE");
-
-document.getElementById("ticketFinal").innerHTML = `
-
-<div class="ticket-header">
-
-<h3>🎬 MIRA Y APRENDE</h3>
-
-<p>Cine Reciclable Escolar</p>
-
-</div>
-
-<div class="ticket-info">
-🎟 Ticket N° ${numeroTicket}
-</div>
-
-<div class="ticket-info">
-👤 ${nombre}
-</div>
-
-<div class="ticket-info">
-🎓 ${grado}
-</div>
-
-<div class="ticket-info">
-🎬 ${pelicula}
-</div>
-
-<div class="ticket-info">
-💺 Asiento ${asientoElegido}
-</div>
-
-<div class="ticket-info">
-♻️ Entrada: 8 Botellas
-</div>
-
-<div class="ticket-info">
-🥤 Total Combos: S/ ${total}
-</div>
-
-<div class="ticket-info">
-📅 ${fecha}
-</div>
-
-<div class="ticket-info">
-🕒 ${hora}
-</div>
-
-<div class="ticket-footer">
-
-🏫 Mira y Aprende
-
-<br>
-
-📱 WhatsApp: 955 057 190
-
-<br>
-
-¡Disfruta la función!
-
-</div>
-
-`;
-
-});
