@@ -84,3 +84,24 @@ color:black;
 #confirmarAsiento{
 margin-top:20px;
 }
+#combos{
+padding:60px 20px;
+text-align:center;
+}
+
+.combo{
+background:#1e293b;
+padding:20px;
+margin:15px auto;
+max-width:300px;
+border-radius:15px;
+}
+
+.combo button{
+margin-top:10px;
+}
+
+#carrito{
+padding:60px 20px;
+text-align:center;
+}
