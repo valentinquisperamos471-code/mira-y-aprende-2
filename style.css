@@ -105,3 +105,17 @@ margin-top:10px;
 padding:60px 20px;
 text-align:center;
 }
+#ticket{
+padding:60px 20px;
+text-align:center;
+}
+
+#ticketFinal{
+background:white;
+color:black;
+max-width:500px;
+margin:20px auto;
+padding:20px;
+border-radius:15px;
+text-align:left;
+}
