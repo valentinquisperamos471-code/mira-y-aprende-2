@@ -94,23 +94,102 @@ alert("Selecciona un asiento.");
 return;
 }
 
-document.getElementById(
-"ticketFinal"
-).innerHTML = `
+document
+.getElementById("generarTicket")
+.addEventListener("click", () => {
+
+const nombre =
+document.getElementById("nombre").value;
+
+const grado =
+document.getElementById("grado").value;
+
+const pelicula =
+document.getElementById("pelicula").value;
+
+if(nombre===""){
+alert("Ingresa tu nombre.");
+return;
+}
+
+if(grado===""){
+alert("Selecciona tu grado o grupo.");
+return;
+}
+
+if(asientoElegido===""){
+alert("Selecciona un asiento.");
+return;
+}
+
+const numeroTicket =
+Math.floor(Math.random()*9000)+1000;
+
+const fecha =
+new Date().toLocaleDateString("es-PE");
+
+const hora =
+new Date().toLocaleTimeString("es-PE");
+
+document.getElementById("ticketFinal").innerHTML = `
+
+<div class="ticket-header">
 
 <h3>🎬 MIRA Y APRENDE</h3>
 
-<p><strong>Nombre:</strong> ${nombre}</p>
+<p>Cine Reciclable Escolar</p>
 
-<p><strong>Grupo:</strong> ${grado}</p>
+</div>
 
-<p><strong>Película:</strong> ${pelicula}</p>
+<div class="ticket-info">
+🎟 Ticket N° ${numeroTicket}
+</div>
 
-<p><strong>Asiento:</strong> ${asientoElegido}</p>
+<div class="ticket-info">
+👤 ${nombre}
+</div>
 
-<p><strong>Entrada:</strong> 8 Botellas</p>
+<div class="ticket-info">
+🎓 ${grado}
+</div>
 
-<p><strong>Total Combos:</strong> S/ ${total}</p>
+<div class="ticket-info">
+🎬 ${pelicula}
+</div>
+
+<div class="ticket-info">
+💺 Asiento ${asientoElegido}
+</div>
+
+<div class="ticket-info">
+♻️ Entrada: 8 Botellas
+</div>
+
+<div class="ticket-info">
+🥤 Total Combos: S/ ${total}
+</div>
+
+<div class="ticket-info">
+📅 ${fecha}
+</div>
+
+<div class="ticket-info">
+🕒 ${hora}
+</div>
+
+<div class="ticket-footer">
+
+🏫 Mira y Aprende
+
+<br>
+
+📱 WhatsApp: 955 057 190
+
+<br>
+
+¡Disfruta la función!
+
+</div>
 
 `;
 
