@@ -66,3 +66,52 @@ document.getElementById("total")
 "Total: S/ " + total;
 
 }
+document
+.getElementById("generarTicket")
+.addEventListener("click", () => {
+
+const nombre =
+document.getElementById("nombre").value;
+
+const grado =
+document.getElementById("grado").value;
+
+const pelicula =
+document.getElementById("pelicula").value;
+
+if(nombre===""){
+alert("Ingresa tu nombre.");
+return;
+}
+
+if(grado===""){
+alert("Selecciona tu grado.");
+return;
+}
+
+if(asientoElegido===""){
+alert("Selecciona un asiento.");
+return;
+}
+
+document.getElementById(
+"ticketFinal"
+).innerHTML = `
+
+<h3>🎬 MIRA Y APRENDE</h3>
+
+<p><strong>Nombre:</strong> ${nombre}</p>
+
+<p><strong>Grupo:</strong> ${grado}</p>
+
+<p><strong>Película:</strong> ${pelicula}</p>
+
+<p><strong>Asiento:</strong> ${asientoElegido}</p>
+
+<p><strong>Entrada:</strong> 8 Botellas</p>
+
+<p><strong>Total Combos:</strong> S/ ${total}</p>
+
+`;
+
+});
