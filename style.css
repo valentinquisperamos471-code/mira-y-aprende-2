@@ -113,9 +113,35 @@ text-align:center;
 #ticketFinal{
 background:white;
 color:black;
-max-width:500px;
+max-width:450px;
 margin:20px auto;
-padding:20px;
-border-radius:15px;
+padding:25px;
+border-radius:20px;
 text-align:left;
+border:4px dashed #000;
+box-shadow:0 0 20px rgba(0,0,0,.4);
+}
+
+.ticket-header{
+text-align:center;
+border-bottom:2px dashed #000;
+padding-bottom:10px;
+margin-bottom:15px;
+}
+
+.ticket-header h3{
+margin:0;
+font-size:28px;
+}
+
+.ticket-info{
+margin:8px 0;
+}
+
+.ticket-footer{
+text-align:center;
+margin-top:15px;
+border-top:2px dashed #000;
+padding-top:10px;
+font-size:14px;
 }
